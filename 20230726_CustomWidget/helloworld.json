@@ -1,0 +1,41 @@
+{
+  "name": "myhelloworldSAP",
+  "description": "Hello World",
+  "newInstancePrefix": "myhelloworldSAP",
+  "eula": "",
+  "vendor": "LauraPucci",
+  "license": "",
+  "id": "myhelloworldSAP",
+  "version": "1.0.1",
+  "icon": "",
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "custom-button",
+      "url": "https://laura-p-95.github.io/20230726_CustomWidget/helloworld.js",
+      "integrity": "",
+      "ignoreIntegrity": true
+
+    }
+  ],
+  "properties": {
+    "width": {
+      "type": "integer",
+      "default": 192
+    },
+    "height": {
+      "type": "integer",
+      "default": 32
+    }
+  },
+  "methods": {
+    "clear": {
+      "description": "Clear the resultset"
+    }
+  },
+  "events": {
+    "onClick": {
+      "description": "Called when the user clicks the button."
+    }
+  }
+}
