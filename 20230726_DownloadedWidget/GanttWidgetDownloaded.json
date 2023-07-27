@@ -1,46 +1,46 @@
 {
-    "name": "GanttChartWidget",
-    "description": "Gantt Chart Widget",
-    "newInstancePrefix": "GanttChartWidget",
-    "eula": "",
-    "license": "Open Source",
-    "id": "GanttChartWidget",
-   "version": "1.0.1",
-    "webcomponents": [
-      {
-        "kind": "main",
-        "tag": "gantt-chart-widget",
-        "url": "https://github.com/laura-p-95/Widget-SAC/blob/master/2023-07-26%20-%20DownloadedWidget/GanttWidgetDownloaded.js",
-        "integrity": "",
-        "ignoreIntegrity": true
-      }
-    ],
-    "properties": {
-        "width": {
-            "type": "integer",
-            "default": 600
-        },
-        "height": {
-            "type": "integer",
-            "default": 600
-        }
-    },
-    "methods": {},
-    "events": {}, 
-    "dataBindings": {
-        "myDataBinding": {
-            "feeds": [
-                {
-                    "id": "dimensions",
-                    "description": "Dimensions",
-                    "type": "dimension"
-                },
-                {
-                    "id": "measures",
-                    "description": "Measures",
-                    "type": "mainStructureMember"
-                }
-            ]
-        }
+  "name": "GanttChartLauraWidget",
+  "description": "Gantt Chart Laura Widget",
+  "newInstancePrefix": "GanttChartLauraWidget",
+  "eula": "",
+  "license": "Open Source",
+  "id": "GanttChartLauraWidget",
+  "version": "1.0.1",
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "gantt-chart-laura-widget",
+      "url": "https://github.com/laura-p-95/Widget-SAC/blob/main/20230726_DownloadedWidget/GanttWidgetDownloaded.js",
+      "integrity": "",
+      "ignoreIntegrity": true
     }
+  ],
+  "properties": {
+    "width": {
+      "type": "integer",
+      "default": 600
+    },
+    "height": {
+      "type": "integer",
+      "default": 600
+    }
+  },
+  "methods": {},
+  "events": {},
+  "dataBindings": {
+    "myDataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Dimensions",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  }
 }

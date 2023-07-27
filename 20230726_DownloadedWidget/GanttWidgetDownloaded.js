@@ -27,7 +27,7 @@
     
     `;
 
-    class GanttChartWidget extends HTMLElement {
+    class GanttChartLauraWidget extends HTMLElement {
         constructor() {
             super();
             console.log('Constructor called');
@@ -166,5 +166,5 @@ _renderChart() {
 
     }
 
-    customElements.define('gantt-chart-widget', GanttChartWidget);
+    customElements.define('gantt-chart-widget', GanttChartLauraWidget);
 })();
