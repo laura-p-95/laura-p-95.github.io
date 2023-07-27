@@ -5,7 +5,7 @@
   "eula": "",
   "license": "Open Source",
   "id": "GanttChartLauraWidget",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "webcomponents": [
     {
       "ignoreIntegrity": true,
