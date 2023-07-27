@@ -8,7 +8,7 @@
   "version": "1.0.2",
   "webcomponents": [
     {
-      "ignoreIntegrity": true,
+      "ignoreIntegrity": false,
       "integrity": "",
       "kind": "main",
       "tag": "gantt-chart-laura-widget",
