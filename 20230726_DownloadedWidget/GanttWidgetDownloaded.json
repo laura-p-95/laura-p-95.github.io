@@ -8,11 +8,11 @@
   "version": "1.0.1",
   "webcomponents": [
     {
+      "ignoreIntegrity": true,
+      "integrity": "",
       "kind": "main",
       "tag": "gantt-chart-laura-widget",
-      "url": "https://github.com/laura-p-95/Widget-SAC/blob/main/20230726_DownloadedWidget/GanttWidgetDownloaded.js",
-      "integrity": "",
-      "ignoreIntegrity": true
+      "url": "https://raw.githubusercontent.com/laura-p-95/Widget-SAC/main/20230726_DownloadedWidget/GanttWidgetDownloaded.js"
     }
   ],
   "properties": {
