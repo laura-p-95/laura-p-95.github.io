@@ -166,5 +166,5 @@ _renderChart() {
 
     }
 
-    customElements.define('gantt-chart-widget', GanttChartLauraWidget);
+    customElements.define('gantt-chart-laura-widget', GanttChartLauraWidget);
 })();
