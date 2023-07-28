@@ -1,0 +1,48 @@
+{
+  "name": "PieChartWidget",
+  "description": "Pie Chart Widget",
+  "newInstancePrefix": "PieChartWidget",
+  "eula": "",
+  "license": "",
+  "id": "PieChartWidget",
+  "version": "1.0.1",
+  "icon": "",
+  "vendor": "Laura Pucci",
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "pie-chart-widget",
+      "url": "https://laura-p-95.github.io/20230728_PieChart_UsesData/PieChartWidget.js",
+      "integrity": "",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "width": {
+      "type": "integer",
+      "default": 750
+    },
+    "height": {
+      "type": "integer",
+      "default": 700
+    }
+  },
+  "methods": {},
+  "events": {},
+  "dataBindings": {
+    "myDataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Dimensions",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  }
+}
