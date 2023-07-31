@@ -76,7 +76,7 @@
             generatedText.value = "";
             const {
                 apiKey
-            } = this._props || "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";
+            } = this._props || "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";
             const {
                 max_tokens
             } = this._props || 1024;
@@ -87,18 +87,19 @@
                 generatedText.value = "Finding result...";
                 const prompt = promptInput.value;
                 const response = await fetch("https://api.openai.com/v1/completions", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer " + apiKey
-                    },
                     body: JSON.stringify({
-                        "model": "text-davinci-002",
+                        "model": "text-davinci-003",
                         "prompt": prompt,
                         "max_tokens": parseInt(max_tokens),
                         "n": 1,
                         "temperature": 0.5
-                    })
+                    },
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + apiKey
+                    }
+                    )
                 });
 
                 if (response.status === 200) {
