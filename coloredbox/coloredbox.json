@@ -18,13 +18,6 @@
 			"ignoreIntegrity": true
 		},
 		{
-			"kind": "styling",
-			"tag": "com-sap-sample-coloredbox-styling",
-			"url": "https://laura-p-95.github.io/coloredbox/coloredbox_styling.js",
-			"integrity": "",
-			"ignoreIntegrity": true
-		},
-		{
 			"kind": "builder",
 			"tag": "com-sap-sample-coloredbox-builder",
 			"url": "https://laura-p-95.github.io/coloredbox/coloredbox_builder.js",
