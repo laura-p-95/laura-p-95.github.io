@@ -58,14 +58,13 @@
 	</style> 
 	<div>
 		<center>
-			<img src="https://laura-p-95.github.io/coloredbox/sdg_icon.png" width="50"/>
 			<h1>MealGenerator</h1>
 		</center>
 		<div class="input-container">
 			<input type="text" id="prompt-input" placeholder="Enter an ingredient">
 			<button id="generate-button">Generate Recipe</button>
 		</div>
-		<textarea id="generated-text" rows="10" cols="50" readonly></ textarea>
+		<textarea id="generated-text" rows="5" cols="25" readonly></ textarea>
 	</div>
 
 	`;
