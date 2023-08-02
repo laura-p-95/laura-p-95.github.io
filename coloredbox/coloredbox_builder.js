@@ -3,7 +3,82 @@
 
 	template.innerHTML = `
 	
-		<form id="form">
+		
+
+		
+    #form {
+        font-family: Arial, sans-serif;
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+
+    td {
+        padding: 1px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        font-size: 13px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+
+    input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+	width: 32px;
+	height: 32px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        font-size: 13px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+        background-color: #487cac;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    #label {
+        width: 140px;
+    }
+</style>
+<form id="form">
 			<fieldset>
 				<legend>Colored Box Properties</legend>
 				<table>
@@ -16,7 +91,9 @@
 						<td><input id="styling_color" type="text" size="40" maxlength="40"></td>
 					</tr>
 				</table>
+				</fieldset>
 				<br><br><br>
+				<fieldset>
 				<legend>OpenAI Properties</legend>
 				<table>
 					<tr>
@@ -31,13 +108,6 @@
 				<input type="submit" style="display:none;">
 			</fieldset>
 		</form>
-
-		<style>
-		:host {
-			display: block;
-			padding: 1em 1em 1em 1em;
-		}
-		</style>
 
 		<br>
 	`;
@@ -59,7 +129,9 @@
 				detail: {
 					properties: {
 						opacity: this.opacity,
-						color: this.color
+						color: this.color,
+						apiKey: this.apiKey,
+						max_tokens: this.max_tokens
 					}
 				}
 			}));
