@@ -1,7 +1,7 @@
 {
 
 	"id": "com.sap.sample.coloredbox",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"name": "Colored Box",
 	"description": "A colored box",
 	"newInstancePrefix": "ColoredBox",
