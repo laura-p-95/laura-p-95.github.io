@@ -14,7 +14,7 @@
 	/* Style for the container */
 	div {
 		margin: 5px auto;
-		max-width: 100px;
+		max-width: 200px;
 	}
   
 	/* Style for the input container */
@@ -44,13 +44,12 @@
 		border-radius: 5px;
 		cursor: pointer;
 		width: 25%;
-		heigth:100px;
 	}
   
 	/* Style for the generated text area */
 	#generated-text {
-		padding: 10px;
-		font-size: 16px;
+		padding: 5px;
+		font-size: 10px;
 		border: 1px solid #ccc;
 		border-radius: 5px;
 		width:96%;
@@ -64,7 +63,7 @@
 			<input type="text" id="prompt-input" placeholder="Enter an ingredient">
 			<button id="generate-button">Generate Recipe</button>
 		</div>
-		<textarea id="generated-text" rows="5" cols="25" readonly></ textarea>
+		<textarea id="generated-text" rows="10" cols="40" readonly></ textarea>
 	</div>
 
 	`;
