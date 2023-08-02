@@ -39,7 +39,7 @@
 			if ("opacity" in changedProperties) {
 				this.style["opacity"] = changedProperties["opacity"];
 			}
-			this.initMain();
+
 		}
 	}
 

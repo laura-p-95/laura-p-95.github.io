@@ -4,8 +4,6 @@
 	template.innerHTML = `
 	
 		
-
-		
     #form {
         font-family: Arial, sans-serif;
         width: 400px;
