@@ -35,7 +35,6 @@
 					properties: {
 						color: this.color
 					}
-					
 				}
 			}));
 		}
@@ -50,3 +49,4 @@
 	}
 
 	customElements.define("com-sap-sample-coloredbox-styling", ColoredBoxStylingPanel);
+})();
