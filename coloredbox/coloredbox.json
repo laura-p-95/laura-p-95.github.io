@@ -93,6 +93,40 @@
 			"description": "Returns the background opacity.",
 			"body": "return this.opacity;"
 
+		},
+
+		"setApiKey": {
+			"description": "Set Api Key of ChatGPT",
+			"parameters": [
+				{
+					"name": "apiKey",
+					"type": "string",
+					"description": "Api Key of ChatGPT"
+				}
+			],
+			"body": "this.apiKey = apiKey;"
+		},
+		"getApiKey": {
+			"returnType": "string",
+			"description": "Return Api Key of ChatGPT",
+			"body": "return this.apiKey;"
+		},
+
+		"setMax_tokens": {
+			"description": "Set Result Max Length",
+			"parameters": [
+				{
+					"name": "max_tokens",
+					"type": "integer",
+					"description": "Result Max Length"
+				}
+			],
+			"body": "this.max_tokens = max_tokens;"
+		},
+		"getMax_tokens": {
+			"returnType": "integer",
+			"description": "Return Result Max Length",
+			"body": "return this.max_tokens;"
 		}
 	},
 	"events": {

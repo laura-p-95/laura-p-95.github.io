@@ -16,6 +16,18 @@
 						<td><input id="styling_color" type="text" size="40" maxlength="40"></td>
 					</tr>
 				</table>
+				<br><br><br>
+				<legend>OpenAI Properties</legend>
+				<table>
+					<tr>
+						<td>Api Key of ChatGPT</td>
+						<td><input id="builder_apiKey" type="text" placeholder="Enter Api Key of ChatGPT"></td>
+					</tr>
+					<tr>
+						<td>Result Max Length</td>
+						<td><input id="builder_max_tokens" type="number" placeholder="Enter Result Max Length"></td>
+					</tr>
+				</table>
 				<input type="submit" style="display:none;">
 			</fieldset>
 		</form>
@@ -26,6 +38,8 @@
 			padding: 1em 1em 1em 1em;
 		}
 		</style>
+
+		<br>
 	`;
 
 	class ColoredBoxBuilderPanel extends HTMLElement {
@@ -66,6 +80,20 @@
 
 		get color() {
 			return this._shadowRoot.getElementById("styling_color").value;
+		}
+
+		set apiKey(_apiKey) {
+			this._shadowRoot.getElementById("builder_apiKey").value = _apiKey;
+		}
+		get apiKey() {
+			return this._shadowRoot.getElementById("builder_apiKey").value;
+		}
+
+		set max_tokens(_max_tokens) {
+			this._shadowRoot.getElementById("builder_max_tokens").value = _max_tokens;
+		}
+		get max_tokens() {
+			return this._shadowRoot.getElementById("builder_max_tokens").value;
 		}
 	}
 
