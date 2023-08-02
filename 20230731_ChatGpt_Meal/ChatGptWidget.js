@@ -68,6 +68,9 @@
       shadowRoot.appendChild(template.content.cloneNode(true));
       this._props = {};
     }
+    
+
+
     async connectedCallback() {
       this.initMain();
     }
@@ -85,7 +88,8 @@
         const promptInput = this.shadowRoot.getElementById("prompt-input");
         const generatedText = this.shadowRoot.getElementById("generated-text");
         generatedText.value = "Finding result...";
-        const prompt = promptInput.value;
+          const prompt = promptInput.value;
+          const message = 'I have in my fridge ${result}. I want you to suggest me a ${id} that I can make with these ingredients. I need you to reply ONLY WITH a JSON-format message with 4 nodes: MealPossible with values yes/no if there is any meal that you can suggest, SuggestedMeal where you put the suggested meal name and Quantities node that contains an array with necessary quantities(meal for one) in kg and the ingredient name. Forth node will be Steps which contains all the steps required to make the dish. If the MealPossible node value is no, do not send the other nodes.';
         const response = await fetch("https://api.openai.com/v1/completions", {
           method: "POST",
           headers: {
@@ -120,6 +124,8 @@
         ...changedProperties
       };
     }
+
+
     onCustomWidgetAfterUpdate(changedProperties) {
       this.initMain();
     }
