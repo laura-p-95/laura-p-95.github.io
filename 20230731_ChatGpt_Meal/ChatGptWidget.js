@@ -117,7 +117,9 @@
           generatedText.value = "";
         }
       });
-    }
+      }
+
+    //how updates are handled
     onCustomWidgetBeforeUpdate(changedProperties) {
       this._props = {
         ...this._props,
