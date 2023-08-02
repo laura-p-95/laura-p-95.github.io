@@ -14,7 +14,7 @@
 	/* Style for the container */
 	div {
 		margin: 5px auto;
-		max-width: 200px;
+		max-width: 100px;
 	}
   
 	/* Style for the input container */
@@ -27,8 +27,8 @@
   
 	/* Style for the input field */
 	#prompt-input {
-		padding: 10px;
-		font-size: 16px;
+		padding: 5px;
+		font-size: 10px;
 		border: 1px solid #ccc;
 		border-radius: 5px;
 		width: 70%;
@@ -36,14 +36,15 @@
   
 	/* Style for the button */
 	#generate-button {
-		padding: 10px;
-		font-size: 16px;
+		padding: 5px;
+		font-size: 10px;
 		background-color: #3cb6a9;
 		color: #fff;
 		border: none;
 		border-radius: 5px;
 		cursor: pointer;
 		width: 25%;
+		heigth:100px;
 	}
   
 	/* Style for the generated text area */
