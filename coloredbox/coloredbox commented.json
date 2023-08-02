@@ -1,3 +1,9 @@
+
+//Basically, it is nothing more than the name implies: a purple box with a black border. 
+//Yet, it touches all relevant capabilities of custom widgets: It can be inserted on the canvas, 
+//it can be moved and resized, it adds script methods to the script editor, 
+//and it adds a Styling Panel and a Builder Panel with which 
+//you can modify properties of the Colored Box in the analytics designer at design time.
 {
 
 	"id": "com.sap.sample.coloredbox",
@@ -5,14 +11,14 @@
 	"name": "Colored Box",
 	"description": "A colored box",
 	"newInstancePrefix": "ColoredBox",
-	"icon": "https://laura-p-95.github.io/coloredbox/sdg_icon.png",
+	"icon": "https://www.sample.com/customwidgets/coloredbox/icon.png",
 	"vendor": "Laura Pucci",
 	"eula": "",
 	"license": "",
 	"webcomponents": [
 		{
 			"kind": "main",
-			"tag": "com-sap-sample-coloredbox",
+			"tag": "com-sap-sample-coloredbox", //name of its custom element 
 			"url": "https://laura-p-95.github.io/coloredbox/coloredbox.js",
 			"integrity": "",
 			"ignoreIntegrity": true
@@ -32,7 +38,7 @@
 			"ignoreIntegrity": true
 		}
 	],
-
+	//the properties of the Colored Box custom widget: color, opacity, width, and height.
 	"properties": {
 		"apiKey": {
 			"description": "Api Key of ChatGPT",
@@ -63,8 +69,9 @@
 			"default": 100
 		}
 	},
-
+	//the script methods of the Colored Box are defined:
 	"methods": {
+		//Function setColor takes one parameter, the new color.
 		"setColor": {
 			"description": "Sets the background color.",
 			"parameters": [
@@ -74,19 +81,20 @@
 					"description": "The new background color"
 				}
 			],
-			"body": "this.color = newColor;"
+			"body": "this.color = newColor;" //The body property contains the script code, which sets the passed parameter newColor, a string, to the Colored Box�s color property.
+			//This function definition lets you write script code in the analytics designer script editor like, for example, ColoredBox_1.setColor("red");.
 		},
-
+		//Function getColor takes no parameters and returns the color.
 		"getColor": {
 			"returnType": "string",
 			"description": "Returns the background color.",
-			"body": "return this.color;"
-
+			"body": "return this.color;" //The body property contains the script code, which returns the value of the Colored Box�s color property as a value of type string.
+			//This function definition lets you write script code in the analytics designer script editor like, for example, var theColor = ColoredBox_1.getColor();.
 		}
 	},
 	"events": {
 		"onClick": {
-			"description": "Called when the user clicks the Colored Box."
+			"description": "Called when the user clicks the Colored Box." //This event has no parameters, as events can�t have parameters yet.
 		}
 	}
 }
