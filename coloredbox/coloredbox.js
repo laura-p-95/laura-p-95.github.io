@@ -13,8 +13,8 @@
 	} 
 	/* Style for the container */
 	div {
-		margin: 50px auto;
-		max-width: 600px;
+		margin: 5px auto;
+		max-width: 200px;
 	}
   
 	/* Style for the input container */
@@ -22,7 +22,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin-bottom: 20px;
+		margin-bottom: 5px;
 	}
   
 	/* Style for the input field */
@@ -57,7 +57,7 @@
 	</style> 
 	<div>
 		<center>
-			<img src="https://laura-p-95.github.io/coloredbox/sdg_icon.png" width="20"/>
+			<img src="https://laura-p-95.github.io/coloredbox/sdg_icon.png" width="50"/>
 			<h1>MealGenerator</h1>
 		</center>
 		<div class="input-container">
