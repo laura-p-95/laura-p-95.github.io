@@ -39,7 +39,7 @@
 		},
 		"height": {
 			"type": "integer",
-			"default": 600
+			"default": 500
 		},
 		"max_tokens": {
 			"description": "Result Max Length",
