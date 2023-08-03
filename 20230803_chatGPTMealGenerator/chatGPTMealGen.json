@@ -1,7 +1,7 @@
 {
 
 	"id": "chatGPTMealGenerator",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"name": "A ChatGPT Meal Generator",
 	"description": "A ChatGPT Meal Generator",
 	"newInstancePrefix": "ChatGPTMealGenerator",

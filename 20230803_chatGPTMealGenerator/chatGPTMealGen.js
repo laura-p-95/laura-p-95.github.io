@@ -1,8 +1,6 @@
 (function () {
 	let template = document.createElement("template");
 	template.innerHTML = `
-
-
 	<style>
         :host {
 			border-radius: 25px;
@@ -12,51 +10,52 @@
 			display: block;
 		} 
   
-  /* Style for the container */
-  div {
-    margin: 20px auto;
-    max-width: 400px;
-  }
+	/* Style for the container */
+	div {
+		margin: 20px auto;
+		max-width: 400px;
+	}
   
-  /* Style for the input container */
-  .input-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
+	/* Style for the input container */
+	.input-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
+	}
   
-  /* Style for the input field */
-  #prompt-input {
-    padding: 10px;
-    font-size: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 65%;
-  }
-  
-  /* Style for the button */
-  #generate-button {
-    padding: 10px;
-    font-size: 10px;
-    background-color: #3cb6a9;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 25%;
-  }
-  
-	  /* Style for the generated text area */
-	  #generated-text {
+	/* Style for the input field */
+	#prompt-input {
 		padding: 10px;
 		font-size: 10px;
 		border: 1px solid #ccc;
 		border-radius: 5px;
-	  width:96%;
+		width: 65%;
+	}
+  
+	/* Style for the button */
+	#generate-button {
+		padding: 10px;
+		font-size: 10px;
+		background-color: #3cb6a9;
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		width: 25%;
+	}
+  
+	/* Style for the generated text area */
+	#generated-text {
+		padding: 10px;
+		font-size: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		width:96%;
 
-  }
-      </style>
+	}
+    </style>
+
 	<div>
 		<center>
 			<img src="https://laura-p-95.github.io/20230803_chatGPTMealGenerator/sdg_icon.png" width="100"/>
@@ -68,9 +67,9 @@
 			<button id="generate-button">Generate Recipe</button>
 		</div>
 		
-		<textarea id="generated-text" rows="10" cols="50" readonly></ textarea>
+		<textarea id="generated-text" readonly></ textarea>
 		<br><br><br><br><br><br><br><br><br><br><br><br>
-		<textarea id="data-text" rows="10" cols="50" readonly></ textarea>
+		<textarea id="data-text" readonly></ textarea>
 	</div>
 
 	`;
