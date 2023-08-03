@@ -4,7 +4,7 @@
 	let template = document.createElement("template");
 	
 	template.innerHTML = `
-		<form id="form">
+		<form id="formcolor">
 			<fieldset>
 				<legend>Colored Box Properties</legend>
 				<table>
@@ -17,8 +17,11 @@
 						<td><input id="styling_color" type="text" size="40" maxlength="40"></td>
 					</tr>
 				</table>
+				<input type="COLORsubmit" style="display:none;">
 				</fieldset>
 				<br><br><br>
+				</form>
+			<form id="form">
 				<fieldset>
 				<legend>OpenAI Properties</legend>
 				<table>
@@ -35,12 +38,7 @@
 			</fieldset>
 		</form>
 
-		<style>
-		:host {
-			display: block;
-			padding: 1em 1em 1em 1em;
-		}
-		</style>
+		
 	`;
 
 	class ColoredBoxStylingPanel extends HTMLElement {
@@ -51,16 +49,27 @@
 
 			this._shadowRoot.appendChild(template.content.cloneNode(true)); 
 
+			this._shadowRoot.getElementById("formcolor").addEventListener("COLORsubmit", this._colorsubmit.bind(this));
 			this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
 		}
 
-		_submit(e) {
+		_colorsubmit(e) {
 			e.preventDefault();
 			this.dispatchEvent(new CustomEvent("propertiesChanged", {
 				detail: {
 					properties: {
 						opacity: this.opacity,
-						color: this.color,
+						color: this.color
+					}
+				}
+			}));
+		}
+		_submit(e) {
+			e.preventDefault();
+			this.dispatchEvent(new CustomEvent("propertiesChanged", {
+				detail: {
+					properties: {
+						
 						apiKey: this.apiKey,
 						max_tokens: this.max_tokens
 					}
