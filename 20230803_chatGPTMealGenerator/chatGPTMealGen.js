@@ -4,66 +4,123 @@
 
 
 	<style>
-	:host {
-		border-radius: 25px;
-		border-width: 4px;
-		border-color: black;
-		border-style: solid;
-		display: block;
-	} 
-	/* Style for the container */
-	div {
-		margin: 5px auto;
-		max-width: 200px;
-	}
+        :host {}
   
-	/* Style for the input container */
-	.input-container {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-bottom: 5px;
-	}
+  /* Style for the container */
+  div {
+    margin: 50px auto;
+    max-width: 300px;
+  }
   
-	/* Style for the input field */
-	#prompt-input {
-		padding: 5px;
+  /* Style for the input container */
+  .input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the input field */
+  #prompt-input {
+    padding: 10px;
+    font-size: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+  }
+  
+  /* Style for the button */
+  #generate-button {
+    padding: 10px;
+    font-size: 10px;
+    background-color: #3cb6a9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 25%;
+  }
+  
+	  /* Style for the generated text area */
+	  #generated-text {
+		padding: 10px;
 		font-size: 10px;
 		border: 1px solid #ccc;
 		border-radius: 5px;
-		width: 70%;
+	  width:96%;
+
+	  /* Dropdown Button */
+	.dropbtn {
+	  background-color: #04AA6D;
+	  color: white;
+	  padding: 16px;
+	  font-size: 16px;
+	  border: none;
+	  cursor: pointer;
 	}
-  
-	/* Style for the button */
-	#generate-button {
-		padding: 5px;
-		font-size: 10px;
-		background-color: #3cb6a9;
-		color: #fff;
-		border: none;
-		border-radius: 5px;
-		cursor: pointer;
-		width: 25%;
+
+	/* Dropdown button on hover & focus */
+	.dropbtn:hover, .dropbtn:focus {
+	  background-color: #3e8e41;
 	}
-  
-	/* Style for the generated text area */
-	#generated-text {
-		padding: 5px;
-		font-size: 10px;
-		border: 1px solid #ccc;
-		border-radius: 5px;
-		width:96%;
+
+	/* The search field */
+	#myInput {
+	  box-sizing: border-box;
+	  background-image: url('searchicon.png');
+	  background-position: 14px 12px;
+	  background-repeat: no-repeat;
+	  font-size: 16px;
+	  padding: 14px 20px 12px 45px;
+	  border: none;
+	  border-bottom: 1px solid #ddd;
 	}
-	</style> 
+
+	/* The search field when it gets focus/clicked on */
+	#myInput:focus {outline: 3px solid #ddd;}
+
+	/* The container <div> - needed to position the dropdown content */
+	.dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
+
+	/* Dropdown Content (Hidden by Default) */
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #f6f6f6;
+	  min-width: 230px;
+	  border: 1px solid #ddd;
+	  z-index: 1;
+	}
+
+	/* Links inside the dropdown */
+	.dropdown-content a {
+	  color: black;
+	  padding: 12px 16px;
+	  text-decoration: none;
+	  display: block;
+	}
+
+	/* Change color of dropdown links on hover */
+	.dropdown-content a:hover {background-color: #f1f1f1}
+
+	/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+	.show {display:block;}
+  }
+      </style>
 	<div>
 		<center>
 			<img src="https://laura-p-95.github.io/20230803_chatGPTMealGenerator/sdg_icon.png" width="100"/>
 			<h1> MealGenerator</h1>
 		</center>
 		<div class="input-container">
+		<h3>Write an Ingredient</h3>
 			<input type="text" id="prompt-input" placeholder="Enter an ingredient">
 			<button id="generate-button">Generate Recipe</button>
 		</div>
+		
 		<textarea id="generated-text" rows="10" cols="50" readonly></ textarea>
 	</div>
 
@@ -128,7 +185,7 @@
 			const {max_tokens} = this._props || 1024;
 			const generateButton = this.shadowRoot.getElementById("generate-button");
 			generateButton.addEventListener("click", async () => {
-				const promptInput = this.shadowRoot.getElementById("prompt-input");
+				const promptInput = "Write a recipe that uses the following ingredient: " + this.shadowRoot.getElementById("prompt-input");
 				const generatedText = this.shadowRoot.getElementById("generated-text");
 				generatedText.value = "Finding result...";
 				const prompt = promptInput.value;
