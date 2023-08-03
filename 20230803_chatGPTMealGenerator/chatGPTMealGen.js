@@ -84,12 +84,7 @@
 
 			}
 
-		// sounds important
-		onCustomWidgetAfterUpdate(changedProperties) {
-			if ("myDataBinding" in changedProperties) {
-				this._updateData(changedProperties.myDataBinding);
-			}
-		}
+	
 
 		// sounds important
 		_updateData(dataBinding) {
@@ -173,14 +168,16 @@
 
 		
 		onCustomWidgetAfterUpdate(changedProperties) {
-			if ("color" in changedProperties) {
-				this.style["background-color"] = changedProperties["color"];
-			}
-			
 			if ("myDataBinding" in changedProperties) {
 				this._updateData(changedProperties.myDataBinding);
 			}
+
 			this.initMain();
+			
+			if ("color" in changedProperties) {
+				this.style["background-color"] = changedProperties["color"];
+			}
+
 
 		}
 

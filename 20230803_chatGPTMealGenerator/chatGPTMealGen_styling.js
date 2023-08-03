@@ -11,7 +11,7 @@
 					
 					<tr>
 						<td>Color</td>
-						<td><input id="styling_color" type="text" size="30" maxlength="30"></td>
+						<td><input id="styling_color" type="text"></td>
 					</tr>
 					<tr>
 						<td>Api Key of ChatGPT</td>
@@ -32,6 +32,7 @@
 			this._shadowRoot = this.attachShadow({ mode: "open" });
 			this._shadowRoot.appendChild(template.content.cloneNode(true)); 
 			this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
+
 		}
 
 		_submit(e) {

@@ -99,13 +99,9 @@ input[type="color"]::-webkit-color-swatch {
    class ChatGptWidgetBuilderPanel extends HTMLElement {
       constructor() {
          super();
-         this._shadowRoot = this.attachShadow({
-            mode: "open"
-         });
+         this._shadowRoot = this.attachShadow({mode: "open"});
          this._shadowRoot.appendChild(template.content.cloneNode(true));
-         this._shadowRoot
-            .getElementById("form")
-            .addEventListener("submit", this._submit.bind(this));
+         this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
       }
       _submit(e) {
          e.preventDefault();
