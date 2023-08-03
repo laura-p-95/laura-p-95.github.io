@@ -67,6 +67,7 @@
     </style>
 
 	<div>
+	<textarea id="data-text" readonly></ textarea>
 		<center>
 			<img src="https://laura-p-95.github.io/20230803_chatGPTMealGenerator/sdg_icon.png" width="100"/>
 			<h2> MealGenerator</h1>
@@ -78,8 +79,7 @@
 		</div>
 		
 		<textarea id="generated-text" readonly></ textarea>
-		<br><br><br><br><br><br><br><br><br><br><br><br>
-		<textarea id="data-text" readonly></ textarea>
+		
 	</div>
 
 	`;
@@ -142,8 +142,7 @@
 			const {apiKey} = this._props || "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";
 			const {max_tokens} = this._props || 1024;
 			const generateButton = this.shadowRoot.getElementById("generate-button");
-			const dataText = this.shadowRoot.getElementById("data-text");
-			dataText.value = getMembers()
+			
 			generateButton.addEventListener("click", async () => {
 
 				const promptInput = this.shadowRoot.getElementById("prompt-input");
@@ -190,6 +189,8 @@
 		onCustomWidgetAfterUpdate(changedProperties) {
 			if ("myDataBinding" in changedProperties) {
 				this._updateData(changedProperties.myDataBinding);
+				const dataText = this.shadowRoot.getElementById("data-text");
+				dataText.value = getMembers()
 			}
 
 			this.initMain();
