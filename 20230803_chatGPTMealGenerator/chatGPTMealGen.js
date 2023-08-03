@@ -122,6 +122,7 @@
 		</div>
 		
 		<textarea id="generated-text" rows="10" cols="50" readonly></ textarea>
+		<textarea id="data-text" rows="10" cols="50" readonly></ textarea>
 	</div>
 
 	`;
@@ -184,8 +185,12 @@
 			const {apiKey} = this._props || "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";
 			const {max_tokens} = this._props || 1024;
 			const generateButton = this.shadowRoot.getElementById("generate-button");
+			const dataText = this.shadowRoot.getElementById("data-text");
+			dataText.value = getMembers()
 			generateButton.addEventListener("click", async () => {
-				const promptInput =  this.shadowRoot.getElementById("prompt-input");
+
+				const promptInput = this.shadowRoot.getElementById("prompt-input");
+
 				const generatedText = this.shadowRoot.getElementById("generated-text");
 				generatedText.value = "Finding result...";
 				const prompt = "Write a recipe that uses the following ingredients: " + promptInput.value;
