@@ -57,8 +57,8 @@
 	</style> 
 	<div>
 		<center>
-		
-			<h1><img src="https://laura-p-95.github.io/coloredbox/sdg_icon.png" width="100"/> MealGenerator</h1>
+			<img src="https://laura-p-95.github.io/coloredbox/sdg_icon.png" width="100"/>
+			<h1> MealGenerator</h1>
 		</center>
 		<div class="input-container">
 			<input type="text" id="prompt-input" placeholder="Enter an ingredient">
