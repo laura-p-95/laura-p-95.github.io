@@ -23,9 +23,7 @@
 					</tr>
 				</table>
 				<input type="submit" style="display:none;">
-				</fieldset>
-				
-			
+			</fieldset>
 		</form>
 	`;
 	class ColoredBoxStylingPanel extends HTMLElement {
