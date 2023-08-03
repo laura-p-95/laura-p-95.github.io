@@ -1,26 +1,26 @@
 {
 
-	"id": "com.sap.sample.coloredbox",
-	"version": "1.1.7",
-	"name": "Colored Box",
-	"description": "A colored box",
-	"newInstancePrefix": "ColoredBox",
-	"icon": "https://laura-p-95.github.io/coloredbox/sdg_icon.png",
+	"id": "chatGPTMealGenerator",
+	"version": "1.0.0",
+	"name": "A ChatGPT Meal Generator",
+	"description": "A ChatGPT Meal Generator",
+	"newInstancePrefix": "ChatGPTMealGenerator",
+	"icon": "https://laura-p-95.github.io/20230803_chatGPTMealGenerator/sdg_icon.png",
 	"vendor": "Laura Pucci",
 	"eula": "",
 	"license": "",
 	"webcomponents": [
 		{
 			"kind": "main",
-			"tag": "com-sap-sample-coloredbox",
-			"url": "https://laura-p-95.github.io/coloredbox/coloredbox.js",
+			"tag": "chatGPTMealGeneratorjs",
+			"url": "https://laura-p-95.github.io/20230803_chatGPTMealGenerator/chatGPTMealGen.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "styling",
-			"tag": "com-sap-sample-coloredbox-styling",
-			"url": "https://laura-p-95.github.io/coloredbox/coloredbox_styling.js",
+			"tag": "chatGPTMealGenerator-styling",
+			"url": "https://laura-p-95.github.io/20230803_chatGPTMealGenerator/chatGPTMealGen_styling.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		}

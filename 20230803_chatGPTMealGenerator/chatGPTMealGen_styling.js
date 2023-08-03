@@ -6,7 +6,7 @@
 	template.innerHTML = `
 		<form id="form">
 			<fieldset>
-				<legend>Colored Box Properties</legend>
+				<legend>Properties</legend>
 				<table>
 					
 					<tr>
@@ -15,18 +15,18 @@
 					</tr>
 					<tr>
 						<td>Api Key of ChatGPT</td>
-						<td><input id="builder_apiKey" type="text" placeholder="Enter Api Key of ChatGPT"></td>
+						<td><input id="styling_apiKey" type="text" placeholder="Enter Api Key of ChatGPT"></td>
 					</tr>
 					<tr>
 						<td>Result Max Length</td>
-						<td><input id="builder_max_tokens" type="number" placeholder="Enter Result Max Length"></td>
+						<td><input id="styling_max_tokens" type="number" placeholder="Enter Result Max Length"></td>
 					</tr>
 				</table>
 				<input type="submit" style="display:none;">
 			</fieldset>
 		</form>
 	`;
-	class ColoredBoxStylingPanel extends HTMLElement {
+	class ChatGPTStylingPanel extends HTMLElement {
 		constructor() {
 			super();
 			this._shadowRoot = this.attachShadow({ mode: "open" });
@@ -57,19 +57,19 @@
 		}
 	
 		set apiKey(_apiKey) {
-			this._shadowRoot.getElementById("builder_apiKey").value = _apiKey;
+			this._shadowRoot.getElementById("styling_apiKey").value = _apiKey;
 		}
 		get apiKey() {
-			return this._shadowRoot.getElementById("builder_apiKey").value;
+			return this._shadowRoot.getElementById("styling_apiKey").value;
 		}
 
 		set max_tokens(_max_tokens) {
-			this._shadowRoot.getElementById("builder_max_tokens").value = _max_tokens;
+			this._shadowRoot.getElementById("styling_max_tokens").value = _max_tokens;
 		}
 		get max_tokens() {
-			return this._shadowRoot.getElementById("builder_max_tokens").value;
+			return this._shadowRoot.getElementById("styling_max_tokens").value;
 		}
 	}
 
-	customElements.define("com-sap-sample-coloredbox-styling", ColoredBoxStylingPanel);
+	customElements.define("chatGPTMealGenerator-styling", ChatGPTStylingPanel);
 })();

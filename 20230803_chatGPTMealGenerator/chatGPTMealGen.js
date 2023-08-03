@@ -57,7 +57,7 @@
 	</style> 
 	<div>
 		<center>
-			<img src="https://laura-p-95.github.io/coloredbox/sdg_icon.png" width="100"/>
+			<img src="https://laura-p-95.github.io/20230803_chatGPTMealGenerator/sdg_icon.png" width="100"/>
 			<h1> MealGenerator</h1>
 		</center>
 		<div class="input-container">
@@ -69,7 +69,7 @@
 
 	`;
 	
-	class ColoredBox extends HTMLElement { 
+	class ChatGPT extends HTMLElement { 
 		
 		constructor() {
 			super();
@@ -189,7 +189,7 @@
 
 	}
 
-	customElements.define("com-sap-sample-coloredbox", ColoredBox);
+	customElements.define("chatGPTMealGeneratorjs", ChatGPT);
 
 	
 })();
