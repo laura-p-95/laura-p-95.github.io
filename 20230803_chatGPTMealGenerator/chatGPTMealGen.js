@@ -63,6 +63,7 @@
 		</div>
 		
 		<textarea id="generated-text" rows="10" cols="50" readonly></ textarea>
+		<br><br><br><br><br><br><br><br><br><br><br><br>
 		<textarea id="data-text" rows="10" cols="50" readonly></ textarea>
 	</div>
 
