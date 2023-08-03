@@ -71,5 +71,5 @@
 		}
 	}
 
-	customElements.define("chatGPTMealGenerator-styling", ChatGPTStylingPanel);
+	customElements.define("chat-gpt-meal-generator-js-styling", ChatGPTStylingPanel);
 })();

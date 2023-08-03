@@ -1,7 +1,7 @@
 {
 
 	"id": "chatGPTMealGenerator",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"name": "A ChatGPT Meal Generator",
 	"description": "A ChatGPT Meal Generator",
 	"newInstancePrefix": "ChatGPTMealGenerator",
@@ -12,14 +12,14 @@
 	"webcomponents": [
 		{
 			"kind": "main",
-			"tag": "chatGPTMealGeneratorjs",
+			"tag": "chat-gpt-meal-generator-js",
 			"url": "https://laura-p-95.github.io/20230803_chatGPTMealGenerator/chatGPTMealGen.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "styling",
-			"tag": "chatGPTMealGenerator-styling",
+			"tag": "chat-gpt-meal-generator-js-styling",
 			"url": "https://laura-p-95.github.io/20230803_chatGPTMealGenerator/chatGPTMealGen_styling.js",
 			"integrity": "",
 			"ignoreIntegrity": true
@@ -45,11 +45,6 @@
 			"description": "Result Max Length",
 			"type": "integer",
 			"default": 1024
-		},
-		"opacity": {
-			"type": "number",
-			"description": "Opacity",
-			"default": 1
 		},
 		"width": {
 			"type": "integer",

@@ -176,9 +176,7 @@
 			if ("color" in changedProperties) {
 				this.style["background-color"] = changedProperties["color"];
 			}
-			if ("opacity" in changedProperties) {
-				this.style["opacity"] = changedProperties["opacity"];
-			}
+			
 			if ("myDataBinding" in changedProperties) {
 				this._updateData(changedProperties.myDataBinding);
 			}
@@ -189,7 +187,7 @@
 
 	}
 
-	customElements.define("chatGPTMealGeneratorjs", ChatGPT);
+	customElements.define("chat-gpt-meal-generator-js", ChatGPT);
 
 	
 })();
