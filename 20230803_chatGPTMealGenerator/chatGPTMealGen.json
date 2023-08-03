@@ -1,7 +1,7 @@
 {
 
 	"id": "chatGPTMealGenerator",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"name": "A ChatGPT Meal Generator",
 	"description": "A ChatGPT Meal Generator",
 	"newInstancePrefix": "ChatGPTMealGenerator",
@@ -39,7 +39,7 @@
 		},
 		"height": {
 			"type": "integer",
-			"default": 100
+			"default": 600
 		},
 		"max_tokens": {
 			"description": "Result Max Length",
@@ -48,7 +48,7 @@
 		},
 		"width": {
 			"type": "integer",
-			"default": 100
+			"default": 400
 		}
 	},
 
