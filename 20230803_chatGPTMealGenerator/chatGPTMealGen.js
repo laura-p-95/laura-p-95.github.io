@@ -78,8 +78,8 @@
 			<button id="generate-button">Generate Recipe</button>
 		</div>
 		
-		<textarea id="generated-text" rows="10" cols="50" readonly></ textarea>
-		<textarea id="data-text" rows="10" cols="50" readonly></ textarea>
+		<textarea id="generated-text" readonly></ textarea>
+		<textarea id="data-text" readonly></ textarea>
 		
 	</div>
 
@@ -140,8 +140,7 @@
 		async initMain() {
 			const generatedText = this.shadowRoot.getElementById("generated-text");
 			generatedText.value = "";
-			const dataText = this.shadowRoot.getElementById("data-text");
-			dataText.value = "";
+			
 			const {apiKey} = this._props || "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";
 			const {max_tokens} = this._props || 1024;
 			const generateButton = this.shadowRoot.getElementById("generate-button");
@@ -152,8 +151,7 @@
 
 				const generatedText = this.shadowRoot.getElementById("generated-text");
 				generatedText.value = "Finding result...";
-				const dataText = this.shadowRoot.getElementById("data-text");
-				dataText.value = getDataSource()
+		
 				const prompt = "Write a recipe that uses the following ingredients: " + promptInput.value;
 				const response = await fetch("https://api.openai.com/v1/completions", {
 					method: "POST",
@@ -185,6 +183,15 @@
 			});
 		}
 
+		async initBinding() {
+			const dataText = this.shadowRoot.getElementById("data-text");
+			dataText.value = "";
+			generateButton.addEventListener("click", async () => {
+				const dataText = this.shadowRoot.getElementById("data-text");
+				dataText.value = getDataSource()
+			});
+		}
+
 		onCustomWidgetBeforeUpdate(changedProperties) {
 			this._props = { ...this._props, ...changedProperties };
 			
@@ -198,7 +205,7 @@
 			}
 
 			this.initMain();
-			
+			this.initBinding();
 			if ("color" in changedProperties) {
 				this.style["background-color"] = changedProperties["color"];
 			}
