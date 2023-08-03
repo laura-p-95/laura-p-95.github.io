@@ -10,21 +10,16 @@
 			display: block;
 		} 
   
-	/* Style for the container */
 	div {
 		margin: 20px auto;
 		max-width: 400px;
 	}
-  
-	/* Style for the input container */
 	.input-container {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 20px;
 	}
-  
-	/* Style for the input field */
 	#prompt-input {
 		padding: 10px;
 		font-size: 10px;
@@ -33,7 +28,6 @@
 		width: 65%;
 	}
   
-	/* Style for the button */
 	#generate-button {
 		padding: 10px;
 		font-size: 10px;
@@ -45,7 +39,6 @@
 		width: 25%;
 	}
   
-	/* Style for the generated text area */
 	#generated-text {
 		padding: 10px;
 		font-size: 10px;
@@ -55,7 +48,6 @@
 
 	}
 
-	/* Style for the generated text area */
 	#data-text {
 		padding: 10px;
 		font-size: 10px;
