@@ -64,7 +64,7 @@
 			<input type="text" id="prompt-input" placeholder="Enter an ingredient">
 			<button id="generate-button">Generate Recipe</button>
 		</div>
-		<textarea id="generated-text" rows="10" cols="40" readonly></ textarea>
+		<textarea id="generated-text" rows="10" cols="50" readonly></ textarea>
 	</div>
 
 	`;
@@ -81,6 +81,62 @@
 				this.dispatchEvent(event);
 			});
 			this._props = {}; 
+
+			}
+
+		async connectedCallback() {
+			this.initMain();
+		}
+		async initMain() {
+			const id this.mydataBindings.data.param1;
+			const tx cds.transaction(req);
+			const cs = await cds.connect.to('CatalogService');
+			const foods = await cs.run(SELECT.from('Foods', ['Name', 'Quantity', 'UOM']));
+			const items foods.map(food => ${ food.Name } ');
+			const result items.join(',');
+			const message = 'I have in my fridge ${result}. I want you to suggest me a ${id}'
+
+			const generatedText = this.shadowRoot.getElementById("generated-text");
+			generatedText.value = "";
+			const {
+				apiKey
+			} = this._props || "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";
+			const {
+				max_tokens
+			} = this._props || 1024;
+			const generateButton = this.shadowRoot.getElementById("generate-button");
+			generateButton.addEventListener("click", async () => {
+				const promptInput = this.shadowRoot.getElementById("prompt-input");
+				const generatedText = this.shadowRoot.getElementById("generated-text");
+				generatedText.value = "Finding result...";
+				const prompt = promptInput.value;
+				const response = await fetch("https://api.openai.com/v1/completions", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						"Authorization": "Bearer " + apiKey
+					},
+					body: JSON.stringify({
+						"model": "text-davinci-002",
+						"prompt": prompt,
+						"max_tokens": parseInt(max_tokens),
+						"n": 1,
+						"temperature": 0.5
+					})
+				});
+
+				if (response.status === 200) {
+					const {
+						choices
+					} = await response.json();
+					const generatedTextValue = choices[0].text;
+					generatedText.value = generatedTextValue.replace(/^\n+/, '');
+				} else {
+					const error = await response.json();
+					alert("OpenAI Response: " + error.error.message);
+					generatedText.value = "";
+				}
+			});
 		}
 
 		onCustomWidgetBeforeUpdate(changedProperties) {
@@ -96,7 +152,43 @@
 			if ("opacity" in changedProperties) {
 				this.style["opacity"] = changedProperties["opacity"];
 			}
+			if ("myDataBinding" in changedProperties) {
+				this._updateData(changedProperties.myDataBinding);
+			}
+			this.initMain();
 
+		}
+
+		// sounds important
+		_updateData(dataBinding) {
+			console.log('dataBinding:', dataBinding);
+			if (!dataBinding) {
+				console.error('dataBinding is undefined');
+			}
+			if (!dataBinding || !dataBinding.data) {
+				console.error('dataBinding.data is undefined');
+			}
+
+			if (this._ready) {
+				// Check if dataBinding and dataBinding.data are defined
+				if (dataBinding && Array.isArray(dataBinding.data)) {
+					// Transform the data into the correct format
+					const transformedData = dataBinding.data.map(row => {
+						console.log('row:', row);
+						// Check if dimensions_0 and measures_0 are defined before trying to access their properties
+						if (row.dimensions_0 && row.measures_0) {
+							return {
+								dimension: row.dimensions_0.label,
+								measure: row.measures_0.raw
+							};
+						}
+					}).filter(Boolean);  // Filter out any undefined values
+
+					this._renderChart(transformedData);
+				} else {
+					console.error('Data is not an array:', dataBinding && dataBinding.data);
+				}
+			}
 		}
 	}
 

@@ -1,6 +1,6 @@
 (function () {
-  let template = document.createElement("template");
-  template.innerHTML = `
+    let template = document.createElement("template");
+    template.innerHTML = `
       <style>
         :host {}
   
@@ -59,78 +59,70 @@
     <textarea id="generated-text" rows="10" cols="50" readonly></ textarea>
   </div>
     `;
-  class Widget extends HTMLElement {
-    constructor() {
-      super();
-      let shadowRoot = this.attachShadow({
-        mode: "open"
-      });
-      shadowRoot.appendChild(template.content.cloneNode(true));
-      this._props = {};
-    }
-    
-
-
-    async connectedCallback() {
-      this.initMain();
-    }
-    async initMain() {
-      const generatedText = this.shadowRoot.getElementById("generated-text");
-      generatedText.value = "";
-      const {
-        apiKey
-      } = this._props || "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";
-      const {
-        max_tokens
-      } = this._props || 1024;
-      const generateButton = this.shadowRoot.getElementById("generate-button");
-      generateButton.addEventListener("click", async () => {
-        const promptInput = this.shadowRoot.getElementById("prompt-input");
-        const generatedText = this.shadowRoot.getElementById("generated-text");
-        generatedText.value = "Finding result...";
-          const prompt = promptInput.value;
-          const message = 'I have in my fridge ${result}. I want you to suggest me a ${id} that I can make with these ingredients. I need you to reply ONLY WITH a JSON-format message with 4 nodes: MealPossible with values yes/no if there is any meal that you can suggest, SuggestedMeal where you put the suggested meal name and Quantities node that contains an array with necessary quantities(meal for one) in kg and the ingredient name. Forth node will be Steps which contains all the steps required to make the dish. If the MealPossible node value is no, do not send the other nodes.';
-        const response = await fetch("https://api.openai.com/v1/completions", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + apiKey
-          },
-          body: JSON.stringify({
-            "model": "text-davinci-002",
-            "prompt": prompt,
-            "max_tokens": parseInt(max_tokens),
-            "n": 1,
-            "temperature": 0.5
-          })
-        });
-
-        if (response.status === 200) {
-          const {
-            choices
-          } = await response.json();
-          const generatedTextValue = choices[0].text;
-          generatedText.value = generatedTextValue.replace(/^\n+/, '');
-        } else {
-          const error = await response.json();
-          alert("OpenAI Response: " + error.error.message);
-          generatedText.value = "";
+    class Widget extends HTMLElement {
+        constructor() {
+            super();
+            let shadowRoot = this.attachShadow({
+                mode: "open"
+            });
+            shadowRoot.appendChild(template.content.cloneNode(true));
+            this._props = {};
         }
-      });
-      }
+        async connectedCallback() {
+            this.initMain();
+        }
+        async initMain() {
+            const generatedText = this.shadowRoot.getElementById("generated-text");
+            generatedText.value = "";
+            const {
+                apiKey
+            } = this._props || "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";
+            const {
+                max_tokens
+            } = this._props || 1024;
+            const generateButton = this.shadowRoot.getElementById("generate-button");
+            generateButton.addEventListener("click", async () => {
+                const promptInput = this.shadowRoot.getElementById("prompt-input");
+                const generatedText = this.shadowRoot.getElementById("generated-text");
+                generatedText.value = "Finding result...";
+                const prompt = promptInput.value;
+                const response = await fetch("https://api.openai.com/v1/completions", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + apiKey
+                    },
+                    body: JSON.stringify({
+                        "model": "text-davinci-002",
+                        "prompt": prompt,
+                        "max_tokens": parseInt(max_tokens),
+                        "n": 1,
+                        "temperature": 0.5
+                    })
+                });
 
-    //how updates are handled
-    onCustomWidgetBeforeUpdate(changedProperties) {
-      this._props = {
-        ...this._props,
-        ...changedProperties
-      };
+                if (response.status === 200) {
+                    const {
+                        choices
+                    } = await response.json();
+                    const generatedTextValue = choices[0].text;
+                    generatedText.value = generatedTextValue.replace(/^\n+/, '');
+                } else {
+                    const error = await response.json();
+                    alert("OpenAI Response: " + error.error.message);
+                    generatedText.value = "";
+                }
+            });
+        }
+        onCustomWidgetBeforeUpdate(changedProperties) {
+            this._props = {
+                ...this._props,
+                ...changedProperties
+            };
+        }
+        onCustomWidgetAfterUpdate(changedProperties) {
+            this.initMain();
+        }
     }
-
-
-    onCustomWidgetAfterUpdate(changedProperties) {
-      this.initMain();
-    }
-  }
-  customElements.define("com-rohitchouhan-sap-chatgptwidget", Widget);
+    customElements.define("com-rohitchouhan-sap-chatgptwidget", Widget);
 })();

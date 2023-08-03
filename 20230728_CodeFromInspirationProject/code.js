@@ -9,7 +9,7 @@ this.on('msgFridge', async (req) => {
         const foods = await cs.run(SELECT.from('Foods', ['Name', 'Quantity', 'UOM']));
         // const items foods.map(food => '${ food.Quantity } ${ food.UOM } of ${ food.Name } ');
         
-        const items foods.map(food =>  ${ food.Name } ');
+        const items foods.map(food =>  ${ food.Name });
         const result items.join(',');
         const message = 'I have in my fridge ${result}. I want you to suggest me a ${id} that I can make with these ingredients. I need you to reply ONLY WITH a JSON-format message with 4 nodes: MealPossible with values yes/no if there is any meal that you can suggest, SuggestedMeal where you put the suggested meal name and Quantities node that contains an array with necessary quantities(meal for one) in kg and the ingredient name. Forth node will be Steps which contains all the steps required to make the dish. If the MealPossible node value is no, do not send the other nodes.';
         const { Configuration, OpenAIApi } = require('openai');
