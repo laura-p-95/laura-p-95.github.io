@@ -17,7 +17,6 @@
 						<td><input id="styling_color" type="text" size="30" maxlength="30"></td>
 					</tr>
 				</table>
-				<input type="COLORsubmit" style="display:none;">
 				</fieldset>
 				<br><br><br>
 			
@@ -37,16 +36,11 @@
 			</fieldset>
 			<input type="submit" style="display:none;">
 		</form>
-
-		
 	`;
-
 	class ColoredBoxStylingPanel extends HTMLElement {
 		constructor() {
 			super();
-
 			this._shadowRoot = this.attachShadow({ mode: "open" });
-
 			this._shadowRoot.appendChild(template.content.cloneNode(true)); 
 			this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
 		}
