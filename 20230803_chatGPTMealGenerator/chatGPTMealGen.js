@@ -139,6 +139,8 @@
 		async initMain() {
 			const generatedText = this.shadowRoot.getElementById("generated-text");
 			generatedText.value = "";
+			const dataText = this.shadowRoot.getElementById("data-text");
+			dataText.value = "";
 			const {apiKey} = this._props || "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";
 			const {max_tokens} = this._props || 1024;
 			const generateButton = this.shadowRoot.getElementById("generate-button");

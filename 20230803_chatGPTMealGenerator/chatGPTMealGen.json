@@ -1,7 +1,7 @@
 {
 
 	"id": "chatGPTMealGenerator",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"name": "A ChatGPT Meal Generator",
 	"description": "A ChatGPT Meal Generator",
 	"newInstancePrefix": "ChatGPTMealGenerator",
@@ -35,7 +35,7 @@
 		"color": {
 			"type": "string",
 			"description": "Background color",
-			"default": "purple"
+			"default": "violet"
 		},
 		"height": {
 			"type": "integer",
