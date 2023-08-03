@@ -4,11 +4,17 @@
 
 
 	<style>
-        :host {}
+        :host {
+			border-radius: 25px;
+			border-width: 4px;
+			border-color: black;
+			border-style: solid;
+			display: block;
+		} 
   
   /* Style for the container */
   div {
-    margin: 50px auto;
+    margin: 20px auto;
     max-width: 400px;
   }
   
@@ -26,7 +32,7 @@
     font-size: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 70%;
+    width: 65%;
   }
   
   /* Style for the button */
@@ -54,7 +60,7 @@
 	<div>
 		<center>
 			<img src="https://laura-p-95.github.io/20230803_chatGPTMealGenerator/sdg_icon.png" width="100"/>
-			<h1> MealGenerator</h1>
+			<h2> MealGenerator</h1>
 		</center>
 		<h3>Write an Ingredient</h3>
 		<div class="input-container">
