@@ -55,8 +55,8 @@
 		}
 
 		_submit(e) {
-			e.preventDefault(); 
-			this.dispatchEvent(new CustomEvent("propertiesChanged", { 
+			e.preventDefault();
+			this.dispatchEvent(new CustomEvent("propertiesChanged", {
 				detail: {
 					properties: {
 						opacity: this.opacity,
@@ -64,7 +64,6 @@
 						apiKey: this.apiKey,
 						max_tokens: this.max_tokens
 					}
-					
 				}
 			}));
 		}
@@ -100,3 +99,4 @@
 	}
 
 	customElements.define("com-sap-sample-coloredbox-styling", ColoredBoxStylingPanel);
+})();
