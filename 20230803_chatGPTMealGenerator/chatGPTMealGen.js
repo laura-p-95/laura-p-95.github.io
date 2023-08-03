@@ -185,10 +185,10 @@
 			const {max_tokens} = this._props || 1024;
 			const generateButton = this.shadowRoot.getElementById("generate-button");
 			generateButton.addEventListener("click", async () => {
-				const promptInput = "Write a recipe that uses the following ingredient: " + this.shadowRoot.getElementById("prompt-input");
+				const promptInput =  this.shadowRoot.getElementById("prompt-input");
 				const generatedText = this.shadowRoot.getElementById("generated-text");
 				generatedText.value = "Finding result...";
-				const prompt = promptInput.value;
+				const prompt = "Write a recipe that uses the following ingredient: " + promptInput.value;
 				const response = await fetch("https://api.openai.com/v1/completions", {
 					method: "POST",
 					headers: {
@@ -202,6 +202,7 @@
 						"n": 1,
 						"temperature": 0.5
 					})
+
 				});
 
 				if (response.status === 200) {
