@@ -8,21 +8,11 @@
 			<fieldset>
 				<legend>Colored Box Properties</legend>
 				<table>
-					<tr>
-						<td>Opacity</td>
-						<td><input id="builder_opacity" type="text" size="5" maxlength="5"></td>
-					</tr>
+					
 					<tr>
 						<td>Color</td>
 						<td><input id="styling_color" type="text" size="30" maxlength="30"></td>
 					</tr>
-				</table>
-				</fieldset>
-				<br><br><br>
-			
-				<fieldset>
-				<legend>OpenAI Properties</legend>
-				<table>
 					<tr>
 						<td>Api Key of ChatGPT</td>
 						<td><input id="builder_apiKey" type="text" placeholder="Enter Api Key of ChatGPT"></td>
@@ -32,9 +22,10 @@
 						<td><input id="builder_max_tokens" type="number" placeholder="Enter Result Max Length"></td>
 					</tr>
 				</table>
+				<input type="submit" style="display:none;">
+				</fieldset>
 				
-			</fieldset>
-			<input type="submit" style="display:none;">
+			
 		</form>
 	`;
 	class ColoredBoxStylingPanel extends HTMLElement {
@@ -50,7 +41,6 @@
 			this.dispatchEvent(new CustomEvent("propertiesChanged", {
 				detail: {
 					properties: {
-						opacity: this.opacity,
 						color: this.color,
 						apiKey: this.apiKey,
 						max_tokens: this.max_tokens
@@ -67,13 +57,7 @@
 		get color() {
 			return this._shadowRoot.getElementById("styling_color").value;
 		}
-		set opacity(newOpacity) {
-			this._shadowRoot.getElementById("builder_opacity").value = newOpacity;
-		}
-
-		get opacity() {
-			return this._shadowRoot.getElementById("builder_opacity").value;
-		}
+	
 		set apiKey(_apiKey) {
 			this._shadowRoot.getElementById("builder_apiKey").value = _apiKey;
 		}

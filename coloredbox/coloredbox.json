@@ -1,7 +1,7 @@
 {
 
 	"id": "com.sap.sample.coloredbox",
-	"version": "1.1.5",
+	"version": "1.1.6",
 	"name": "Colored Box",
 	"description": "A colored box",
 	"newInstancePrefix": "ColoredBox",
@@ -74,24 +74,6 @@
 			"returnType": "string",
 			"description": "Returns the background color.",
 			"body": "return this.color;"
-
-		},
-		"setOpacity": {
-			"description": "Sets the background opacity.",
-			"parameters": [
-				{
-					"name": "newOpacity",
-					"type": "number",
-					"description": "The new background opacity"
-				}
-			],
-			"body": "this.opacity = newOpacity;"
-		},
-
-		"getOpacity": {
-			"returnType": "number",
-			"description": "Returns the background opacity.",
-			"body": "return this.opacity;"
 
 		},
 
