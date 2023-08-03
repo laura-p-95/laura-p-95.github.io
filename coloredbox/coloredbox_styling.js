@@ -4,7 +4,7 @@
 	let template = document.createElement("template");
 	
 	template.innerHTML = `
-		<form id="formcolor">
+		<form id="form">
 			<fieldset>
 				<legend>Colored Box Properties</legend>
 				<table>
@@ -14,14 +14,13 @@
 					</tr>
 					<tr>
 						<td>Color</td>
-						<td><input id="styling_color" type="text" size="40" maxlength="40"></td>
+						<td><input id="styling_color" type="text" size="30" maxlength="30"></td>
 					</tr>
 				</table>
 				<input type="COLORsubmit" style="display:none;">
 				</fieldset>
 				<br><br><br>
-				</form>
-			<form id="form">
+			
 				<fieldset>
 				<legend>OpenAI Properties</legend>
 				<table>
@@ -34,8 +33,9 @@
 						<td><input id="builder_max_tokens" type="number" placeholder="Enter Result Max Length"></td>
 					</tr>
 				</table>
-				<input type="submit" style="display:none;">
+				
 			</fieldset>
+			<input type="submit" style="display:none;">
 		</form>
 
 		
@@ -48,28 +48,16 @@
 			this._shadowRoot = this.attachShadow({ mode: "open" });
 
 			this._shadowRoot.appendChild(template.content.cloneNode(true)); 
-
-			this._shadowRoot.getElementById("formcolor").addEventListener("COLORsubmit", this._colorsubmit.bind(this));
 			this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
 		}
 
-		_colorsubmit(e) {
-			e.preventDefault();
-			this.dispatchEvent(new CustomEvent("propertiesChanged", {
-				detail: {
-					properties: {
-						opacity: this.opacity,
-						color: this.color
-					}
-				}
-			}));
-		}
 		_submit(e) {
 			e.preventDefault();
 			this.dispatchEvent(new CustomEvent("propertiesChanged", {
 				detail: {
 					properties: {
-						
+						opacity: this.opacity,
+						color: this.color,
 						apiKey: this.apiKey,
 						max_tokens: this.max_tokens
 					}
