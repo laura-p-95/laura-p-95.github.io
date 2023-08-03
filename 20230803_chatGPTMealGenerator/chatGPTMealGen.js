@@ -190,7 +190,7 @@
 			if ("myDataBinding" in changedProperties) {
 				this._updateData(changedProperties.myDataBinding);
 				const dataText = this.shadowRoot.getElementById("data-text");
-				dataText.value = getMembers()
+				dataText.value = getDataSource()
 			}
 
 			this.initMain();
