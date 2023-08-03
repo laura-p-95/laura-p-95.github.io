@@ -54,6 +54,16 @@
 		width:96%;
 
 	}
+
+	/* Style for the generated text area */
+	#data-text {
+		padding: 10px;
+		font-size: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		width:96%;
+
+	}
     </style>
 
 	<div>
