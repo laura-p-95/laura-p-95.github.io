@@ -67,7 +67,7 @@
     </style>
 
 	<div>
-		<textarea id="data-text" rows="10" cols="50" readonly></ textarea>
+		
 		<center>
 			<img src="https://laura-p-95.github.io/20230803_chatGPTMealGenerator/sdg_icon.png" width="100"/>
 			<h2> MealGenerator</h1>
@@ -79,6 +79,7 @@
 		</div>
 		
 		<textarea id="generated-text" rows="10" cols="50" readonly></ textarea>
+		<textarea id="data-text" rows="10" cols="50" readonly></ textarea>
 		
 	</div>
 
