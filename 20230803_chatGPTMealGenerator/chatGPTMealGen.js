@@ -152,6 +152,8 @@
 
 				const generatedText = this.shadowRoot.getElementById("generated-text");
 				generatedText.value = "Finding result...";
+				const dataText = this.shadowRoot.getElementById("data-text");
+				dataText.value = getDataSource()
 				const prompt = "Write a recipe that uses the following ingredients: " + promptInput.value;
 				const response = await fetch("https://api.openai.com/v1/completions", {
 					method: "POST",
@@ -192,8 +194,7 @@
 		onCustomWidgetAfterUpdate(changedProperties) {
 			if ("myDataBinding" in changedProperties) {
 				this._updateData(changedProperties.myDataBinding);
-				const dataText = this.shadowRoot.getElementById("data-text");
-				dataText.value = getDataSource()
+				
 			}
 
 			this.initMain();
