@@ -92,57 +92,15 @@
 
 			}
 
-	
-
-		//// sounds important
-		//_updateData(dataBinding) {
-		//	console.log('dataBinding:', dataBinding);
-		//	if (!dataBinding) {
-		//		console.error('dataBinding is undefined');
-		//	}
-		//	if (!dataBinding || !dataBinding.data) {
-		//		console.error('dataBinding.data is undefined');
-		//	}
-
-		//	if (this._ready) {
-		//		// Check if dataBinding and dataBinding.data are defined
-		//		if (dataBinding && Array.isArray(dataBinding.data)) {
-		//			// Transform the data into the correct format
-		//			const transformedData = dataBinding.data.map(row => {
-		//				console.log('row:', row);
-		//				// Check if dimensions_0 and measures_0 are defined before trying to access their properties
-		//				if (row.dimensions_0 && row.measures_0) {
-		//					return {
-		//						dimension: row.dimensions_0.label,
-		//						measure: row.measures_0.raw
-		//					};
-		//				}
-		//			}).filter(Boolean);  // Filter out any undefined values
-
-		//			this.initBinding(transformedData);
-		//		} else {
-		//			console.error('Data is not an array:', dataBinding && dataBinding.data);
-		//		}
-		//	}
-		//}
-
-		// Function to fetch and parse JSON data
-	
-		// Function to fetch JSON data from an external file
-    
 	async connectedCallback() {
 		this.initMain();
 	}
 	async initMain() {
 		const jsonDataURL = 'https://laura-p-95.github.io/20230803_chatGPTMealGenerator/data.json';
 		// Call the functions to fetch and process the JSON data
-		fetchJsonData(jsonDataURL)
-			.then(data => {
-				processData(data);
-			});
-		const firstThreeValues = data.value.slice(0, 3);
-		const ingredient1Array = firstThreeValues.map(item => item.Ingredient_1);
-		const ingredientsText = ingredient1Array.join(', ');
+		const data = await fetchJsonData(jsonDataURL);
+		const ingredientsText = this.processData(data);
+
 		const generatedText = this.shadowRoot.getElementById("generated-text");
 		generatedText.value = "";
 			
@@ -188,14 +146,7 @@
 		});
 	}
 
-	//async initBinding() {
-	//	const dataText = this.shadowRoot.getElementById("data-text");
-	//	dataText.value = "";
-	//	generateButton.addEventListener("click", async () => {
-	//		const dataText = this.shadowRoot.getElementById("data-text");
-	//		dataText.value = getDataSource()
-	//	});
-	//}
+
 
 	onCustomWidgetBeforeUpdate(changedProperties) {
 		this._props = { ...this._props, ...changedProperties };
@@ -204,10 +155,10 @@
 
 		
 	onCustomWidgetAfterUpdate(changedProperties) {
-		if ("myDataBinding" in changedProperties) {
-			this._updateData(changedProperties.myDataBinding);
+		//if ("myDataBinding" in changedProperties) {
+		//	this._updateData(changedProperties.myDataBinding);
 				
-		}
+		//}
 
 		this.initMain();
 		if ("color" in changedProperties) {
@@ -216,24 +167,12 @@
 
 
 	}
-	async fetchJsonData(url) {
-		return fetch(url)
-			.then(response => {
-				if (!response.ok) {
-					throw new Error('Network response was not ok');
-				}
-				return response.json();
-			})
-			.catch(error => {
-				console.error('Error fetching JSON data:', error);
-			});
-	}
 
 	async processData(data) {
-		// Here, you can access and use the data as needed.
-		// For example, you can update your webpage's content with the data.
-		const outputDiv = document.getElementById('output');
-		outputDiv.innerHTML = JSON.stringify(data, null, 2);
+		const firstThreeValues = data.value.slice(0, 3);
+		const ingredient1Array = firstThreeValues.map(item => item.Ingredient_1);
+		const ingredientsText = ingredient1Array.join(', ');
+		return ingredientsText;
 	}
 
 	}
