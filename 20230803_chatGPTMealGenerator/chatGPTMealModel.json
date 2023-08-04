@@ -1,7 +1,7 @@
 {
 
 	"id": "chatGPTMealWithModel",
-	"version": "1.1.6",
+	"version": "1.1.7",
 	"name": "A ChatGPT Meal With Model Testing",
 	"description": "A ChatGPT Meal With Model",
 	"newInstancePrefix": "ChatGPTMealWithModel",

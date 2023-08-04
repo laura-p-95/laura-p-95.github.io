@@ -129,33 +129,22 @@
 		//}
 
 		// Function to fetch and parse JSON data
-	function fetchJsonData(url) {
-		return fetch(url)
-			.then(response => {
-				if (!response.ok) {
-					throw new Error('Network response was not ok');
-				}
-				return response.json();
-			})
-			.catch(error => {
-				console.error('Error fetching JSON data:', error);
-			});
-	}
-	// Function to process and use the JSON data
-	function processData(data) {
-		// Here, you can access and use the data as needed.
-		// For example, you can update your webpage's content with the data.
-		const outputDiv = document.getElementById('output');
-		outputDiv.innerHTML = JSON.stringify(data, null, 2);
-	}
-
+	
+		// Function to fetch JSON data from an external file
+    
 	async connectedCallback() {
 		this.initMain();
 	}
 	async initMain() {
 		const jsonDataURL = 'https://laura-p-95.github.io/20230803_chatGPTMealGenerator/data.json';
 		// Call the functions to fetch and process the JSON data
-		fetchJsonData(jsonDataURL).then(data => {processData(data);});
+		fetchJsonData(jsonDataURL)
+			.then(data => {
+				processData(data);
+			});
+		const firstThreeValues = data.value.slice(0, 3);
+		const ingredient1Array = firstThreeValues.map(item => item.Ingredient_1);
+		const ingredientsText = ingredient1Array.join(', ');
 		const generatedText = this.shadowRoot.getElementById("generated-text");
 		generatedText.value = "";
 			
@@ -170,7 +159,7 @@
 			const generatedText = this.shadowRoot.getElementById("generated-text");
 			generatedText.value = "Finding result...";
 		
-			const prompt = "Suggest a recipe that uses the following ingredients: " + promptInput.value;
+			const prompt = "Suggest a recipe that uses the following ingredients: " + ingredientsText;
 			const response = await fetch("https://api.openai.com/v1/completions", {
 				method: "POST",
 				headers: {
@@ -229,7 +218,25 @@
 
 
 	}
+	function fetchJsonData(url) {
+		return fetch(url)
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.json();
+			})
+			.catch(error => {
+				console.error('Error fetching JSON data:', error);
+			});
+	}
 
+	function processData(data) {
+		// Here, you can access and use the data as needed.
+		// For example, you can update your webpage's content with the data.
+		const outputDiv = document.getElementById('output');
+		outputDiv.innerHTML = JSON.stringify(data, null, 2);
+	}
 
 	}
 
