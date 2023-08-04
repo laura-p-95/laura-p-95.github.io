@@ -97,7 +97,7 @@
 	}
 	async initMain() {
 		const jsonDataURL = 'https://laura-p-95.github.io/20230803_chatGPTMealGenerator/data.json';
-		// Call the functions to fetch and process the JSON data
+		
 		const data = await this.fetchJsonData(jsonDataURL);
 		const ingredientsText = this.processData(data);
 
@@ -155,10 +155,7 @@
 
 		
 	onCustomWidgetAfterUpdate(changedProperties) {
-		//if ("myDataBinding" in changedProperties) {
-		//	this._updateData(changedProperties.myDataBinding);
-				
-		//}
+		
 
 		this.initMain();
 		if ("color" in changedProperties) {
