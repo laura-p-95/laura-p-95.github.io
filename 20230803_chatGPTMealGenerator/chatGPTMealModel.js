@@ -153,7 +153,7 @@
 		this.initMain();
 	}
 	async initMain() {
-		const jsonDataURL = 'https://sdggroup-2.eu10.hcs.cloud.sap/api/v1/dwc/consumption/relational/TEST_TRAINING/TestRecipes_WithQuantities_View/TestRecipes_WithQuantities_View/';
+		const jsonDataURL = 'https://laura-p-95.github.io/20230803_chatGPTMealGenerator/data.json';
 		// Call the functions to fetch and process the JSON data
 		fetchJsonData(jsonDataURL).then(data => {processData(data);});
 		const generatedText = this.shadowRoot.getElementById("generated-text");
