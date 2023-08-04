@@ -48,7 +48,7 @@
 
 	}
 
-	#data-text {
+	.data-text {
 		padding: 10px;
 		font-size: 10px;
 		border: 1px solid #ccc;
@@ -72,7 +72,7 @@
 		
 		<textarea id="generated-text" rows="5" cols="50" readonly></ textarea>
 		<br><br><br><br><br><br><br><br>
-		<textarea id="data-text" rows="5" cols="50" readonly></ textarea>
+		<textarea class="data-text" rows="5" cols="50" readonly></ textarea>
 		
 	</div>
 
