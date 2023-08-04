@@ -71,9 +71,7 @@
 		</div>
 		
 		<textarea id="generated-text" rows="5" cols="50" readonly></ textarea>
-		<br><br><br><br><br><br><br><br>
-		 <h1>JSON Data Example</h1>
-			<div id="output"></div>
+		
 		
 	</div>
 
@@ -218,7 +216,7 @@
 
 
 	}
-	function fetchJsonData(url) {
+	async fetchJsonData(url) {
 		return fetch(url)
 			.then(response => {
 				if (!response.ok) {
@@ -231,7 +229,7 @@
 			});
 	}
 
-	function processData(data) {
+	async processData(data) {
 		// Here, you can access and use the data as needed.
 		// For example, you can update your webpage's content with the data.
 		const outputDiv = document.getElementById('output');
