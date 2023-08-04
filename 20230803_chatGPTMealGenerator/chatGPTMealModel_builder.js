@@ -11,22 +11,28 @@
 					
 					<tr>
 						<td>Color</td>
-						<td><input id="styling_color" type="text"></td>
+						<td><input id="builder_color" type="text"></td>
 					</tr>
 					<tr>
 						<td>Api Key of ChatGPT</td>
-						<td><input id="styling_apiKey" type="text" placeholder="Enter Api Key of ChatGPT"></td>
+						<td><input id="builder_apiKey" type="text" placeholder="Enter Api Key of ChatGPT"></td>
 					</tr>
 					<tr>
 						<td>Result Max Length</td>
-						<td><input id="styling_max_tokens" type="number" placeholder="Enter Result Max Length"></td>
+						<td><input id="builder_max_tokens" type="number" placeholder="Enter Result Max Length"></td>
 					</tr>
 				</table>
 				<input type="submit" style="display:none;">
 			</fieldset>
 		</form>
+		<style>
+		:host {
+			display: block;
+			padding: 1em 1em 1em 1em;
+		}
+		</style>
 	`;
-	class ChatGPTStylingPanel extends HTMLElement {
+	class ChatGPTBuilderPanel extends HTMLElement {
 		constructor() {
 			super();
 			this._shadowRoot = this.attachShadow({ mode: "open" });
@@ -50,27 +56,27 @@
 
 		
 		set color(newColor) {
-			this._shadowRoot.getElementById("styling_color").value = newColor;
+			this._shadowRoot.getElementById("builder_color").value = newColor;
 		}
 
 		get color() {
-			return this._shadowRoot.getElementById("styling_color").value;
+			return this._shadowRoot.getElementById("builder_color").value;
 		}
 	
 		set apiKey(_apiKey) {
-			this._shadowRoot.getElementById("styling_apiKey").value = _apiKey;
+			this._shadowRoot.getElementById("builder_apiKey").value = _apiKey;
 		}
 		get apiKey() {
-			return this._shadowRoot.getElementById("styling_apiKey").value;
+			return this._shadowRoot.getElementById("builder_apiKey").value;
 		}
 
 		set max_tokens(_max_tokens) {
-			this._shadowRoot.getElementById("styling_max_tokens").value = _max_tokens;
+			this._shadowRoot.getElementById("builder_max_tokens").value = _max_tokens;
 		}
 		get max_tokens() {
-			return this._shadowRoot.getElementById("styling_max_tokens").value;
+			return this._shadowRoot.getElementById("builder_max_tokens").value;
 		}
 	}
 
-	customElements.define("chat-gpt-meal-model-js-styling", ChatGPTStylingPanel);
+	customElements.define("chat-gpt-meal-model-js-builder", ChatGPTBuilderPanel);
 })();

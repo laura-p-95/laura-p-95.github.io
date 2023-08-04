@@ -18,9 +18,9 @@
 			"ignoreIntegrity": true
 		},
 		{
-			"kind": "styling",
-			"tag": "chat-gpt-meal-model-js-styling",
-			"url": "https://laura-p-95.github.io/20230803_chatGPTMealGenerator/chatGPTMealModel_styling.js",
+			"kind": "builder",
+			"tag": "chat-gpt-meal-model-js-builder",
+			"url": "https://laura-p-95.github.io/20230803_chatGPTMealGenerator/chatGPTMealModel_builder.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		}
@@ -35,7 +35,7 @@
 		"color": {
 			"type": "string",
 			"description": "Background color",
-			"default": "violet"
+			"default": "yellow"
 		},
 		"height": {
 			"type": "integer",
