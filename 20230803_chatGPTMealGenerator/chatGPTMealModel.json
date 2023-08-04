@@ -1,10 +1,10 @@
 {
 
-	"id": "chatGPTMealGenerator",
+	"id": "chatGPTMealWithModel",
 	"version": "1.1.0",
-	"name": "A ChatGPT Meal Generator",
-	"description": "A ChatGPT Meal Generator",
-	"newInstancePrefix": "ChatGPTMealGenerator",
+	"name": "A ChatGPT Meal With Model Testing",
+	"description": "A ChatGPT Meal With Model",
+	"newInstancePrefix": "ChatGPTMealWithModel",
 	"icon": "https://laura-p-95.github.io/20230803_chatGPTMealGenerator/sdg_icon.png",
 	"vendor": "Laura Pucci",
 	"eula": "",
@@ -12,15 +12,15 @@
 	"webcomponents": [
 		{
 			"kind": "main",
-			"tag": "chat-gpt-meal-generator-js",
-			"url": "https://laura-p-95.github.io/20230803_chatGPTMealGenerator/chatGPTMealGen.js",
+			"tag": "chat-gpt-meal-model-js",
+			"url": "https://laura-p-95.github.io/20230803_chatGPTMealGenerator/chatGPTMealModel.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "styling",
-			"tag": "chat-gpt-meal-generator-js-styling",
-			"url": "https://laura-p-95.github.io/20230803_chatGPTMealGenerator/chatGPTMealGen_styling.js",
+			"tag": "chat-gpt-meal-model-js-styling",
+			"url": "https://laura-p-95.github.io/20230803_chatGPTMealGenerator/chatGPTMealModel_styling.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		}

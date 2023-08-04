@@ -209,7 +209,7 @@
 
 	}
 
-	customElements.define("chat-gpt-meal-generator-js", ChatGPT);
+	customElements.define("chat-gpt-meal-model-js", ChatGPT);
 
 	
 })();
