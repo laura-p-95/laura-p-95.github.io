@@ -5,7 +5,7 @@
         :host {
 			border-radius: 25px;
 			border-width: 4px;
-			border-color: yellow;
+			border-color: blue;
 			border-style: solid;
 			display: block;
 		} 
@@ -166,7 +166,19 @@
 		}
 
 
-	}
+		}
+		async fetchJsonData(url) {
+			return fetch(url)
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Network response was not ok');
+					}
+					return response.json();
+				})
+				.catch(error => {
+					console.error('Error fetching JSON data:', error);
+				});
+		}
 
 	async processData(data) {
 		const firstThreeValues = data.value.slice(0, 3);
