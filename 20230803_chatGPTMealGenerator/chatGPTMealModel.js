@@ -145,7 +145,7 @@
 				const generatedText = this.shadowRoot.getElementById("generated-text");
 				generatedText.value = "Finding result...";
 		
-				const prompt = "Write a recipe that uses the following ingredients: " + promptInput.value;
+				const prompt = "Suggest a recipe that uses the following ingredients: " + getDataSource();
 				const response = await fetch("https://api.openai.com/v1/completions", {
 					method: "POST",
 					headers: {
