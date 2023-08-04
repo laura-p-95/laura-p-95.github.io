@@ -120,7 +120,7 @@
 						}
 					}).filter(Boolean);  // Filter out any undefined values
 
-					this._renderChart(transformedData);
+					this.initBinding(transformedData);
 				} else {
 					console.error('Data is not an array:', dataBinding && dataBinding.data);
 				}
@@ -145,7 +145,7 @@
 				const generatedText = this.shadowRoot.getElementById("generated-text");
 				generatedText.value = "Finding result...";
 		
-				const prompt = "Suggest a recipe that uses the following ingredients: " + setData('[{ "eggs", "bacon"}]');
+				const prompt = "Suggest a recipe that uses the following ingredients: " + promptInput.value;
 				const response = await fetch("https://api.openai.com/v1/completions", {
 					method: "POST",
 					headers: {
@@ -198,7 +198,6 @@
 			}
 
 			this.initMain();
-			this.initBinding();
 			if ("color" in changedProperties) {
 				this.style["background-color"] = changedProperties["color"];
 			}
