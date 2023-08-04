@@ -1,7 +1,7 @@
 {
 
 	"id": "chatGPTMealWithModel",
-	"version": "1.1.4",
+	"version": "1.1.5",
 	"name": "A ChatGPT Meal With Model Testing",
 	"description": "A ChatGPT Meal With Model",
 	"newInstancePrefix": "ChatGPTMealWithModel",
@@ -110,22 +110,9 @@
 		"onClick": {
 			"description": "Called when the user clicks the Colored Box."
 		}
-	},
-
-	"dataBindings": {
-		"myDataBinding": {
-			"feeds": [
-				{
-					"id": "dimensions",
-					"description": "Dimensions",
-					"type": "dimension"
-				},
-				{
-					"id": "measures",
-					"description": "Measures",
-					"type": "mainStructureMember"
-				}
-			]
-		}
 	}
+
+
+
+	
 }

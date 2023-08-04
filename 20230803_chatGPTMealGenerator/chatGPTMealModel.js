@@ -72,7 +72,8 @@
 		
 		<textarea id="generated-text" rows="5" cols="50" readonly></ textarea>
 		<br><br><br><br><br><br><br><br>
-		<textarea class="data-text" rows="5" cols="50" readonly></ textarea>
+		 <h1>JSON Data Example</h1>
+			<div id="output"></div>
 		
 	</div>
 
@@ -95,115 +96,139 @@
 
 	
 
-		// sounds important
-		_updateData(dataBinding) {
-			console.log('dataBinding:', dataBinding);
-			if (!dataBinding) {
-				console.error('dataBinding is undefined');
-			}
-			if (!dataBinding || !dataBinding.data) {
-				console.error('dataBinding.data is undefined');
-			}
+		//// sounds important
+		//_updateData(dataBinding) {
+		//	console.log('dataBinding:', dataBinding);
+		//	if (!dataBinding) {
+		//		console.error('dataBinding is undefined');
+		//	}
+		//	if (!dataBinding || !dataBinding.data) {
+		//		console.error('dataBinding.data is undefined');
+		//	}
 
-			if (this._ready) {
-				// Check if dataBinding and dataBinding.data are defined
-				if (dataBinding && Array.isArray(dataBinding.data)) {
-					// Transform the data into the correct format
-					const transformedData = dataBinding.data.map(row => {
-						console.log('row:', row);
-						// Check if dimensions_0 and measures_0 are defined before trying to access their properties
-						if (row.dimensions_0 && row.measures_0) {
-							return {
-								dimension: row.dimensions_0.label,
-								measure: row.measures_0.raw
-							};
-						}
-					}).filter(Boolean);  // Filter out any undefined values
+		//	if (this._ready) {
+		//		// Check if dataBinding and dataBinding.data are defined
+		//		if (dataBinding && Array.isArray(dataBinding.data)) {
+		//			// Transform the data into the correct format
+		//			const transformedData = dataBinding.data.map(row => {
+		//				console.log('row:', row);
+		//				// Check if dimensions_0 and measures_0 are defined before trying to access their properties
+		//				if (row.dimensions_0 && row.measures_0) {
+		//					return {
+		//						dimension: row.dimensions_0.label,
+		//						measure: row.measures_0.raw
+		//					};
+		//				}
+		//			}).filter(Boolean);  // Filter out any undefined values
 
-					this.initBinding(transformedData);
-				} else {
-					console.error('Data is not an array:', dataBinding && dataBinding.data);
+		//			this.initBinding(transformedData);
+		//		} else {
+		//			console.error('Data is not an array:', dataBinding && dataBinding.data);
+		//		}
+		//	}
+		//}
+
+		// Function to fetch and parse JSON data
+	function fetchJsonData(url) {
+		return fetch(url)
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
 				}
-			}
-		}
+				return response.json();
+			})
+			.catch(error => {
+				console.error('Error fetching JSON data:', error);
+			});
+	}
+	// Function to process and use the JSON data
+	function processData(data) {
+		// Here, you can access and use the data as needed.
+		// For example, you can update your webpage's content with the data.
+		const outputDiv = document.getElementById('output');
+		outputDiv.innerHTML = JSON.stringify(data, null, 2);
+	}
 
-		async connectedCallback() {
-			this.initMain();
-		}
-		async initMain() {
+	async connectedCallback() {
+		this.initMain();
+	}
+	async initMain() {
+		const jsonDataURL = 'https://sdggroup-2.eu10.hcs.cloud.sap/api/v1/dwc/consumption/relational/TEST_TRAINING/TestRecipes_WithQuantities_View/TestRecipes_WithQuantities_View/';
+		// Call the functions to fetch and process the JSON data
+		fetchJsonData(jsonDataURL).then(data => {processData(data);});
+		const generatedText = this.shadowRoot.getElementById("generated-text");
+		generatedText.value = "";
+			
+		const {apiKey} = this._props || "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";
+		const {max_tokens} = this._props || 1024;
+		const generateButton = this.shadowRoot.getElementById("generate-button");
+			
+		generateButton.addEventListener("click", async () => {
+
+			const promptInput = this.shadowRoot.getElementById("prompt-input");
+
 			const generatedText = this.shadowRoot.getElementById("generated-text");
-			generatedText.value = "";
-			
-			const {apiKey} = this._props || "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";
-			const {max_tokens} = this._props || 1024;
-			const generateButton = this.shadowRoot.getElementById("generate-button");
-			
-			generateButton.addEventListener("click", async () => {
-
-				const promptInput = this.shadowRoot.getElementById("prompt-input");
-
-				const generatedText = this.shadowRoot.getElementById("generated-text");
-				generatedText.value = "Finding result...";
+			generatedText.value = "Finding result...";
 		
-				const prompt = "Suggest a recipe that uses the following ingredients: " + promptInput.value;
-				const response = await fetch("https://api.openai.com/v1/completions", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-						"Authorization": "Bearer " + apiKey
-					},
-					body: JSON.stringify({
-						"model": "text-davinci-002",
-						"prompt": prompt,
-						"max_tokens": parseInt(max_tokens),
-						"n": 1,
-						"temperature": 0.5
-					})
+			const prompt = "Suggest a recipe that uses the following ingredients: " + promptInput.value;
+			const response = await fetch("https://api.openai.com/v1/completions", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					"Authorization": "Bearer " + apiKey
+				},
+				body: JSON.stringify({
+					"model": "text-davinci-002",
+					"prompt": prompt,
+					"max_tokens": parseInt(max_tokens),
+					"n": 1,
+					"temperature": 0.5
+				})
 
-				});
-
-				if (response.status === 200) {
-					const {
-						choices
-					} = await response.json();
-					const generatedTextValue = choices[0].text;
-					generatedText.value = generatedTextValue.replace(/^\n+/, '');
-				} else {
-					const error = await response.json();
-					alert("OpenAI Response: " + error.error.message);
-					generatedText.value = "";
-				}
 			});
-		}
 
-		async initBinding() {
-			const dataText = this.shadowRoot.getElementById("data-text");
-			dataText.value = "";
-			generateButton.addEventListener("click", async () => {
-				const dataText = this.shadowRoot.getElementById("data-text");
-				dataText.value = getDataSource()
-			});
-		}
+			if (response.status === 200) {
+				const {
+					choices
+				} = await response.json();
+				const generatedTextValue = choices[0].text;
+				generatedText.value = generatedTextValue.replace(/^\n+/, '');
+			} else {
+				const error = await response.json();
+				alert("OpenAI Response: " + error.error.message);
+				generatedText.value = "";
+			}
+		});
+	}
 
-		onCustomWidgetBeforeUpdate(changedProperties) {
-			this._props = { ...this._props, ...changedProperties };
+	//async initBinding() {
+	//	const dataText = this.shadowRoot.getElementById("data-text");
+	//	dataText.value = "";
+	//	generateButton.addEventListener("click", async () => {
+	//		const dataText = this.shadowRoot.getElementById("data-text");
+	//		dataText.value = getDataSource()
+	//	});
+	//}
+
+	onCustomWidgetBeforeUpdate(changedProperties) {
+		this._props = { ...this._props, ...changedProperties };
 			
-		}
+	}
 
 		
-		onCustomWidgetAfterUpdate(changedProperties) {
-			if ("myDataBinding" in changedProperties) {
-				this._updateData(changedProperties.myDataBinding);
+	onCustomWidgetAfterUpdate(changedProperties) {
+		if ("myDataBinding" in changedProperties) {
+			this._updateData(changedProperties.myDataBinding);
 				
-			}
-
-			this.initMain();
-			if ("color" in changedProperties) {
-				this.style["background-color"] = changedProperties["color"];
-			}
-
-
 		}
+
+		this.initMain();
+		if ("color" in changedProperties) {
+			this.style["background-color"] = changedProperties["color"];
+		}
+
+
+	}
 
 
 	}
