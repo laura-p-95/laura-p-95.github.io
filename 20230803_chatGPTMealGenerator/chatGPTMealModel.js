@@ -5,7 +5,7 @@
         :host {
 			border-radius: 25px;
 			border-width: 4px;
-			border-color: blue;
+			border-color: purple;
 			border-style: solid;
 			display: block;
 		} 
@@ -98,7 +98,7 @@
 	async initMain() {
 		const jsonDataURL = 'https://laura-p-95.github.io/20230803_chatGPTMealGenerator/data.json';
 		// Call the functions to fetch and process the JSON data
-		const data = await fetchJsonData(jsonDataURL);
+		const data = await this.fetchJsonData(jsonDataURL);
 		const ingredientsText = this.processData(data);
 
 		const generatedText = this.shadowRoot.getElementById("generated-text");
