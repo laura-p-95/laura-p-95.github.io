@@ -70,8 +70,9 @@
 			<button id="generate-button">Generate Recipe</button>
 		</div>
 		
-		<textarea id="generated-text" readonly></ textarea>
-		<textarea id="data-text" readonly></ textarea>
+		<textarea id="generated-text" rows="5" cols="50" readonly></ textarea>
+		<br><br><br><br><br><br><br><br>
+		<textarea id="data-text" rows="5" cols="50" readonly></ textarea>
 		
 	</div>
 
