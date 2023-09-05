@@ -1,8 +1,8 @@
 {
   "eula": "",
-  "vendor": "",
+  "vendor": "Danish",
   "license": "",
-  "id": "food.chatgpt",
+  "id": "com.danish.sap.sac.chatgpt",
   "version": "1.0.0",
   "name": "chatGPT SAC",
   "newInstancePrefix": "chatGPTInSAC",
@@ -19,11 +19,11 @@
   "properties": {
     "width": {
       "type": "integer",
-      "default": 1
+      "default": 500
     },
     "height": {
       "type": "integer",
-      "default": 1
+      "default": 300
     }
   },
   "methods": {
