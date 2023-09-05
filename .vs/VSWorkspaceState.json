@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\20230726_CustomWidget",
-    "\\20230803_chatGPTMealGenerator"
+    "\\20230801_WidgetMeal",
+    "\\20230803_chatGPTMealGenerator",
+    "\\20230803_chatGPTMealGenerator\\commented"
   ],
-  "SelectedNode": "\\20230803_chatGPTMealGenerator\\chatGPTMealGen.js",
+  "SelectedNode": "\\20230803_chatGPTMealGenerator\\chatGPTMealModel.json",
   "PreviewInSolutionExplorer": false
 }
