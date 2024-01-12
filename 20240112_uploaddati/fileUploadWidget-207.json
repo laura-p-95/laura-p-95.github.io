@@ -13,13 +13,13 @@
       {
         "kind": "main",
         "tag": "com-sap-file-upload-widget",
-        "url": "https://laura-p-95.github.io/20240112_uploaddati/file-upload-widget.iife.js",
+        "url": "https://laura-p-95.github.io/20240112_uploaddati/file-upload-widget.js",
         "integrity": "sha256-xSoIE2bm/sO6/GbC8XApYa5iT19e3YGE3wOlL/6Iveg="
       },
       {
         "kind": "builder",
         "tag": "com-sap-file-upload-widget-builder",
-        "url": "https://laura-p-95.github.io/20240112_uploaddati/file-upload-widget.iife.js",
+        "url": "https://laura-p-95.github.io/20240112_uploaddati/file-upload-widget.js",
         "integrity": "sha256-xSoIE2bm/sO6/GbC8XApYa5iT19e3YGE3wOlL/6Iveg="
       }
     ],
