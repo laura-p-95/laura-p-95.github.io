@@ -2,10 +2,10 @@
   "eula": "",
   "vendor": "Danish",
   "license": "",
-  "id": "com.danish.sap.sac.chatgpt",
-  "version": "1.0.0",
-  "name": "chatGPT SAC",
-  "newInstancePrefix": "chatGPTInSAC",
+  "id": "com.danish.sap.sac.chatgpt.turbo",
+  "version": "1.0.2",
+  "name": "chatGPT SAC Turbo",
+  "newInstancePrefix": "chatGPTInSACTurbo",
   "description": "A custom widget to integrate chatGPT3 in SAC Analytic application",
   "webcomponents": [
     {
